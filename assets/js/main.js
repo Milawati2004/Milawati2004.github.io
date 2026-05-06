@@ -230,3 +230,39 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+/* =======================================================
+   ROTIO FILTER (ISOTOPE CUSTOM - AMAN)
+======================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const rotioContainer = document.querySelector('.rotio .isotope-container');
+
+  if (!rotioContainer) return;
+
+  const iso = new Isotope(rotioContainer, {
+    itemSelector: '.isotope-item',
+    layoutMode: 'fitRows'
+  });
+
+  const filters = document.querySelectorAll('.rotio .isotope-filters li');
+
+  filters.forEach(function (filterBtn) {
+    filterBtn.addEventListener('click', function () {
+
+      // remove active
+      filters.forEach(el => el.classList.remove('filter-active'));
+      this.classList.add('filter-active');
+
+      // filter
+      const filterValue = this.getAttribute('data-filter');
+      iso.arrange({
+        filter: filterValue
+      });
+
+    });
+  });
+  
+
+});

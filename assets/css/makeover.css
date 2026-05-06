@@ -1,0 +1,597 @@
+/*--------------------------------------------------------------
+# Roti'O Indonesia - Clean Stylesheet
+# Versi Final: Perbaikan Navigasi & Performa
+--------------------------------------------------------------*/
+
+:root {
+  /* Fonts */
+  --default-font: "Poppins", sans-serif;
+  --heading-font: "Poppins", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+
+  /* Colors */
+  --background-color: #ffffff;
+  --default-color: #444444;
+  --heading-color: #37517e;
+  --accent-color: #958226d8;
+  /* Warna Cokelat Khas Roti'O */
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/*--------------------------------------------------------------
+# Header & Navigation (Fixed Syntax)
+--------------------------------------------------------------*/
+.header {
+  background-color: #958226d8 !important;
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo img {
+  height: 80px !important;
+  /* Diperbaiki: Titik koma sekarang di akhir */
+  margin-left: 20px;
+}
+
+.navmenu ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.navmenu a {
+  color: #ffffff !important;
+  padding: 18px 15px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.navmenu a:hover,
+.navmenu .active {
+  color: #ffcc00 !important;
+}
+
+.header .btn-getstarted {
+  background: #ffcc00;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 8px 25px;
+  margin-left: 30px;
+  border-radius: 50px;
+}
+
+/*--------------------------------------------------------------
+# Sections Layout & Navigation Fix
+--------------------------------------------------------------*/
+section,
+.section {
+  padding: 60px 0 !important;
+  scroll-margin-top: 120px !important;
+  overflow: hidden;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #5c3a1a;
+  /* Cokelat Roti'O */
+}
+
+.section-title h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #5c3a1a;
+  margin: 10px auto;
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  background-color: #958226d8;
+  min-height: 100vh;
+  padding-top: 140px;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 54px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 30px;
+  color: #fdf0d2;
+  font-weight: 600;
+}
+
+.hero .btn-get-started {
+  background: #ffcc00;
+  color: #ffffff;
+  padding: 10px 28px;
+  border-radius: 50px;
+  font-size: 20px;
+}
+
+.hero-img img {
+  width: 380px;
+  animation: up-down 2s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes up-down {
+  0% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/*--------------------------------------------------------------
+# Menu / Filter Styles
+--------------------------------------------------------------*/
+.portfolio-filters {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.portfolio-filters li {
+  display: inline-block;
+  background: #ffffff;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid #ffcc00;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.portfolio-filters li:hover,
+.portfolio-filters .filter-active {
+  background: #ffcc00;
+  color: #fff;
+}
+
+/*--------------------------------------------------------------
+# Menu Cards Modern
+--------------------------------------------------------------*/
+.menu-card {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.menu-card img {
+  width: 100% !important;
+  height: 350px;
+  aspect-ratio: 1/1 !important object-fit: cover !important;
+  display: block;
+}
+
+.menu-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 0.3s;
+}
+
+.menu-overlay h4 {
+  color: #fff;
+  margin: 0;
+  font-size: 18px;
+}
+
+.menu-card:hover img {
+  transform: scale(1.05);
+}
+
+.menu-card:hover .menu-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*--------------------------------------------------------------
+# Contact & Preloader Fixes
+--------------------------------------------------------------*/
+.contact .info-wrap,
+.contact .php-email-form {
+  background: #fff;
+  padding: 30px;
+  border-top: 3px solid #ffcc00;
+  border-bottom: 3px solid #ffcc00;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#preloader:before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #ffcc00;
+  border-radius: 50%;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@keyframes animate-preloader {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.isotope-item {
+  transition: none !important;
+}
+
+.isotope-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* Container Utama Kartu Menu */
+.rotio .menu-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #fff;
+  /* Atur tinggi tetap agar semua gambar setara panjangnya */
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Memastikan gambar tetap tinggi dan tidak terlihat gepeng */
+.rotio .menu-card img {
+  width: 100%;
+  height: 100%;
+  /* Mengikuti tinggi menu-card */
+  object-fit: cover;
+  /* Gambar memenuhi area tanpa dipendekkan paksa */
+  display: block;
+}
+
+/* Overlay Teks Hitam di Bawah Gambar */
+.rotio .menu-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 15px;
+  background: rgba(0, 0, 0, 0.75);
+  /* Hitam transparan yang elegan */
+  text-align: center;
+  z-index: 2;
+}
+
+/* Styling Teks Judul Menu */
+.rotio .menu-overlay h4 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Perbaikan Section Home (Cari Kami) --- */
+.hero .btn-watch-video {
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.5s;
+  color: #ffffff !important;
+  border: 2px solid #ffffff;
+  padding: 10px 25px;
+  border-radius: 50px;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.hero .btn-watch-video i {
+  font-size: 24px;
+  margin-right: 8px;
+  line-height: 0;
+}
+
+.hero .btn-watch-video:hover {
+  background: #ffffff;
+  color: #958226 !important;
+}
+
+/* --- Perbaikan Section Promo --- */
+.why-us .content {
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.btn-promo {
+  background: #5c3a1a;
+  color: #ffcc00;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-block;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn-promo:hover {
+  background: #ffcc00;
+  color: #5c3a1a;
+}
+
+/* --- Perbaikan Section Kontak (Ikon Sejajar) --- */
+.contact .info-item {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  /* Membuat ikon dan teks sejajar vertikal */
+  margin-bottom: 20px;
+}
+
+.contact .info-item i {
+  font-size: 28px;
+  color: #958226;
+  background: #fdf5e6;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 20px;
+  /* Jarak antara ikon dan teks */
+  flex-shrink: 0;
+}
+
+.contact .info-item h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #5c3a1a;
+}
+
+.contact .info-item p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+/* --- PROMO SECTION HD --- */
+.why-us .content {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  /* Efek HD Shadow */
+  border-left: 5px solid #ffcc00;
+  /* Aksen warna Roti'O */
+}
+
+.why-us h3 {
+  font-weight: 800;
+  color: #5c3a1a;
+  letter-spacing: -0.5px;
+}
+
+.why-us .faq-item {
+  background: #fdfaf0;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.why-us .faq-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(92, 58, 26, 0.1);
+}
+
+/* --- CONTACT SECTION HD --- */
+.contact .info-wrap {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.07);
+}
+
+.contact .info-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.contact .info-item:last-child {
+  border-bottom: none;
+}
+
+.contact .info-item i {
+  font-size: 24px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #958226, #5c3a1a);
+
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  margin-right: 20px;
+  box-shadow: 0 8px 15px rgba(92, 58, 26, 0.2);
+}
+
+.contact .info-item h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #5c3a1a;
+  margin-bottom: 2px;
+}
+
+.contact .info-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.php-email-form input,
+.php-email-form textarea {
+  border-radius: 10px !important;
+  border: 1px solid #e0e0e0 !important;
+  padding: 12px 15px !important;
+  transition: 0.3s;
+}
+
+.php-email-form input:focus,
+.php-email-form textarea:focus {
+  border-color: #958226 !important;
+  box-shadow: 0 0 0 4px rgba(149, 130, 38, 0.1) !important;
+}
+
+/* --- FOOTER SECTION --- */
+.footer {
+  color: #ffffff;
+  background-color: #1a1a1a;
+  font-size: 14px;
+  padding-bottom: 50px;
+  position: relative;
+  border-top: 5px solid #ffcc00;
+}
+
+.footer .footer-top {
+  padding-top: 60px;
+}
+
+.footer .footer-about p {
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.footer h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffcc00;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+}
+
+.footer h4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: #ffcc00;
+}
+
+.footer .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.footer .footer-links ul a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+.footer .footer-links ul a:hover {
+  color: #ffcc00;
+  padding-left: 5px;
+}
+
+/* Social Links HD */
+.footer .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-right: 10px;
+  transition: 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: #1a1a1a;
+  background-color: #ffcc00;
+  border-color: #ffcc00;
+  transform: translateY(-3px);
+}
+
+.footer .copyright {
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
